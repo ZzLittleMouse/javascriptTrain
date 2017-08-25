@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <style>
+        ul{
+            margin: 0;
+            padding:0;
+            list-style: none;
+        }
+        #point{
+            display: flex;
+            flex-direction: row;
+        }
+        #point li{
+            width:100px;
+            height:100px;
+            background:gray;
+            margin:5px;
+        }
+        #point li.on{
+            background: green;
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="point">
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        var liList = $("#point li");
+
+        var timeIndex = 0;
+        setInterval(function(){
+
+            //设置点的样式
+            liList.removeClass("on");
+            $(liList[timeIndex]).addClass("on");
+
+            //计数器
+            timeIndex++;
+            //重置
+            if(timeIndex > 4){
+                timeIndex = 0;
+            }
+        },1000)
+
+        liList.each(function(i,item){
+            console.log("item",item)
+            $(item);
+        });
+    </script>
+
+</body>
+</html>
