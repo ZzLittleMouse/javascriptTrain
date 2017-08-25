@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <title>Title</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+        #main{height:100%;}
+        .row{
+            height:50px;
+            border-bottom:1px solid #000;
+            line-height:50px;
+        }
+
+        #myInput{
+            position: absolute;
+        }
+    </style>
+    <script src="jQuery-1.7.1.js"></script>
+</head>
+<body>
+    <div id="main">
+
+    </div>
+    <input id="myInput" type="text" value="默认"/>
+    <script>
+        var template = `<div class="row"><span class="reply">回复</span></div>`;
+        var main = document.getElementById("main");
+        var last = "";
+        for(var i = 0;i<40;i++){
+            last += template;
+        }
+        main.innerHTML = last;
+
+        $(".reply").on("click",function(){
+            let $myInput = $("#myInput");
+            let top = $(this).height() + $(this).offset().top;
+            console.log("height offsetTop",$(this).height(),$(this).offset().top)
+            let half = $(window).height();
+            console.log("top half",top,half)
+            if(top < half){
+                $myInput.top = half;
+            }else{
+                $myInput.top = top;
+            }
+            $myInput.focus();
+        });
+    </script>
+</body>
+</html>
