@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <style>
+        html,body,#ceshi{
+            height:100%;
+            margin:0;
+        }
+        .list{
+            width:100%;
+            height: 50px;
+        }
+        #ceshi .list:nth-child(odd){
+            background: deepskyblue;
+        }
+        #ceshi .list:nth-child(even){
+            background: dodgerblue;
+        }
+        #myInput{
+            position: absolute;
+            bottom:0;
+            border:1px solid #000;
+            background: #FFF;
+        }
+    </style>
+    <script src="jQuery-1.7.1.js"></script>
+</head>
+<body>
+
+    <div id="ceshi">
+        <input style="display: none;" id="myInput" type="text"/>
+
+        <div class="list">
+
+        </div>
+        <div class="list">
+
+        </div>
+        <div class="list">
+
+        </div>
+        <div class="list">
+
+        </div>
+        <div class="list">
+
+        </div>
+        <div class="list">
+
+        </div>
+        <div class="list">
+
+        </div>
+        <div class="list">
+
+        </div>
+        <div class="list">
+
+        </div>
+        <div class="list">
+
+        </div>
+        <div class="list">
+
+        </div>
+    </div>
+    <script>
+        $(".list").on("click",function(){
+            $("#myInput").show().focus().scrollIntoView(true);
+        });
+    </script>
+</body>
+</html>
