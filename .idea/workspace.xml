@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f09fc460-e498-4547-aab1-f988da174404" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jQuery-1.7.1.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/手机端 input focus位置控制.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/输入框贴在软键盘上.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/测试.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -33,13 +30,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="手机端 input focus位置控制.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="手机端 input focus位置控制.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/手机端 input focus位置控制.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="572">
               <caret line="71" column="55" lean-forward="false" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="55" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="测试.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/测试.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="16" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -116,16 +130,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="输入框贴在软键盘上.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/输入框贴在软键盘上.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="38" column="40" lean-forward="false" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -146,6 +150,7 @@
       <find>js</find>
       <find>B_Demo</find>
       <find>stylizeAll</find>
+      <find>show</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -163,6 +168,7 @@
         <option value="$PROJECT_DIR$/输入框贴在软键盘上.html" />
         <option value="$PROJECT_DIR$/jQuery横向图片焦点图滚动效果/index.html" />
         <option value="$PROJECT_DIR$/手机端 input focus位置控制.html" />
+        <option value="$PROJECT_DIR$/测试.html" />
       </list>
     </option>
   </component>
@@ -179,7 +185,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="23" />
     <option name="width" value="1934" />
@@ -256,15 +262,16 @@
       <workItem from="1501567081854" duration="2220000" />
       <workItem from="1502850367939" duration="8247000" />
       <workItem from="1503017595966" duration="9938000" />
-      <workItem from="1503277098710" duration="4951000" />
+      <workItem from="1503277098710" duration="10261000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25356000" />
+    <option name="totallyTimeSpent" value="30666000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1098" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24788584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -620,6 +627,21 @@
           <caret line="71" column="55" lean-forward="false" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="55" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/测试.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="16" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
