@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jQuery-1.7.1.js"></script>
+    <style>
+        .lzt {
+            position: relative;
+        }
+
+        .lzt li {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            position: absolute;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+</div>
+<div class="lzt">
+    <li style="background: red;">
+
+    </li>
+    <li style="background: orange;">
+
+    </li>
+    <li style="background: yellow;">
+
+    </li>
+    <li style="background: green;">
+
+    </li>
+    <li style="background: dodgerblue;">
+
+    </li>
+</div>
+
+<script>
+
+    //不同浏览器多测测
+    $(document).ready(function () {
+        //初始化 瞬间完成即可
+        $(".lzt>li").css({filter: "Alpha(Opacity=0)", opacity: 0});
+        $(".lzt>li:first").css({filter: "Alpha(Opacity=100)", opacity: 1, "z-index": 1});
+        var n = 0;
+
+        //点击进行切换 感觉没必要，注释了
+
+//        $(".lzt_btn>li").click(function(){
+//            n=$(this).index();
+//            $(".lzt>li").animate({opacity:.0},500,function(){
+////                $(this).hide();
+//            }).css({filter:"Alpha(Opacity=0)"});
+//            $(".lzt>li:eq("+n+")").animate({opacity:1},500).css({filter:"Alpha(Opacity=100)","z-index":1});
+//            $(".lzt_btn>li").removeClass("current");
+//            $(".lzt_btn>li:eq("+n+")").addClass("current");
+//        });
+        function changeN() {
+            $(".lzt_btn>li").removeClass("current");
+            //低版本浏览器或jq
+//                $(".lzt>li:eq(" + n + ")").animate({opacity: .0}, 2000).css({filter: "Alpha(Opacity=0)"});
+            $(".lzt>li:eq(" + n + ")").animate({opacity: .0}, 2000, function () {
+                if (n < $(".lzt>li").length - 1) {
+                    n = n + 1;
+                } else {
+                    n = 0;
+                }
+                //低版本浏览器或jq
+//                $(".lzt>li:eq(" + n + ")").animate({opacity: 1}, 2000).css({filter: "Alpha(Opacity=100)"})
+                $(".lzt>li:eq(" + n + ")").animate({opacity: 1}, 2000);
+                $(".lzt_btn>li:eq(" + n + ")").addClass("current");
+            });
+        }
+
+        //循环周期4秒，显示隐藏时间各两秒
+        var timer = setInterval(changeN, 4000);
+        //鼠标hover清空事件，普通状态添加事件
+        $(".lzt>li").hover(function () {
+            clearInterval(timer);
+        }, function () {
+            //执行了方法，返回值同时给了本身对象？
+            //所以可以通过返回值继续操作？
+            timer = setInterval(changeN, 4000);
+        });
+    });
+
+
+    //另一种
+    //    $(document).ready(function () {
+    //        //初始化 瞬间完成即可
+    //        $(".lzt>li").css({filter: "Alpha(Opacity=0)", opacity: 0});
+    //        $(".lzt>li:first").css({filter: "Alpha(Opacity=100)", opacity: 1, "z-index": 1});
+    //        var n = 0;
+    //        var change = false;//flase隐藏 true显示，进行两种状态交替
+    //
+    //        function changeN() {
+    //            if (change) {
+    //                if (n < $(".lzt>li").length - 1) {
+    //                    n = n + 1;
+    //                } else {
+    //                    n = 0;
+    //                }
+    //                //低版本浏览器或jq
+    ////                $(".lzt>li:eq(" + n + ")").animate({opacity: 1}, 2000).css({filter: "Alpha(Opacity=100)"})
+    //                $(".lzt>li:eq(" + n + ")").animate({opacity: 1}, 2000);
+    //                change = !change;
+    //                $(".lzt_btn>li:eq(" + n + ")").addClass("current");
+    //            } else {
+    //                //低版本浏览器或jq
+    ////                $(".lzt>li:eq(" + n + ")").animate({opacity: .0}, 2000).css({filter: "Alpha(Opacity=0)"});
+    //                $(".lzt>li:eq(" + n + ")").animate({opacity: .0}, 2000);
+    //                change = !change;
+    //                $(".lzt_btn>li").removeClass("current");
+    //            };
+    //        }
+    //
+    //        var timer = setInterval(changeN, 2000);
+    //        //鼠标hover清空事件，普通状态添加事件
+    //        $(".lzt>li").hover(function () {
+    //            clearInterval(timer);
+    //        }, function () {
+    //            timer = setInterval(changeN, 2000);
+    //        });
+    //    });
+
+    //原始代码
+    //    $(document).ready(function(){
+    //        $(".lzt>li").animate({opacity:.0},500).css({flter:"Alpha(Opacity=0)"});
+    //        $(".lzt>li:first").animate({opacity:.1},500).css({flter:"Alpha(Opacity=100)"});
+    //        var n=0;
+    //        $(".lzt_btn>li").click(function(){
+    //            n=$(this).index();
+    //            $(".lzt>li").animate({opacity:.0},500).css({flter:"Alpha(Opacity=0)"});
+    //            $(".lzt>li:eq("+n+")").animate({opacity:.1},500).css({flter:"Alpha(Opacity=100)"});
+    //            $(".lzt_btn>li").removeClass("current");
+    //            $(".lzt_btn>li:eq("+n+")").addClass("current");
+    //        });
+    //        function changeN(){
+    //            if(n<$(".lzt>li").length-1){
+    //                n=n+1;
+    //            }else{
+    //                n=0;
+    //            }
+    //            $(".lzt>li").animate({opacity:.0},500).css({flter:"Alpha(Opacity=0)"});
+    //            $(".lzt>li:eq("+n+")").animate({opacity:.1},500).css({flter:"Alpha(Opacity=100)"});
+    //            $(".lzt_btn>li").removeClass("current");
+    //            $(".lzt_btn>li:eq("+n+")").addClass("current");
+    //        };
+    //        var timer=setInterval(changeN,2000);
+    //        $(".lzt>li").hover(function(){
+    //            clearInterval(timer);
+    //        },function(){
+    //            timer=setInterval(changeN,2000);
+    //        });
+    //    });
+
+</script>
+</body>
+</html>

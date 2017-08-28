@@ -4,74 +4,81 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="js/jquery-3.2.1.min.js"></script>
-    <style type="text/css">
-        html,body{
-            height:100%;
-            margin:0;
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
         }
-        ul,li{
-            margin:0;
-            padding:0;
+        ul, li {
+            margin: 0;
+            padding: 0;
             list-style: none;
         }
-        #rotate{
+        #fang{
+            width:300px;
+            height:300px;
             position: absolute;
             top:0;
             left:0;
-            right:0;
             bottom:0;
+            right:0;
             margin:auto;
-            width:300px;
-            height:300px;
-            transform-style: preserve-3d;
-            /*产生冲突*/
-            /*transform:translate(-50%,-50%);*/
-            transform: perspective(800px) rotateX(-30deg) rotateY(30deg  );
+            transform-style:preserve-3d;
+            transform: perspective(1000px) rotateX(-30deg) rotateY(30deg);
         }
-        #rotate img{
-            width:300px;
-            height: 300px;
-        }
-        #rotate li{
+        #fang li {
             position: absolute;
-            top: 0;
+            top:0;
+            width: 300px;
+            height: 300px;
+            /*background: forestgreen;*/
+            border:1px solid #000;
+            /*box-shadow:  50 50 0 limegreen inset;*/
         }
     </style>
 </head>
 <body>
-        <ul id="rotate">
-            <li>
-                <img src="images/1.jpg"/>
-            </li>
-            <li>
-                <img src="images/2.jpg"/>
-            </li>
-            <li>
-                <img src="images/3.jpg"/>
-            </li>
-            <li>
-                <img src="images/4.jpg"/>
-            </li>
-            <li>
-                <img src="images/5.jpg"/>
-            </li>
-            <li>
-                <img src="images/6.jpg"/>
-            </li>
-            <li>
-                <img src="images/7.jpg"/>
-            </li>
-            <li>
-                <img src="images/8.jpg"/>
-            </li>
-        </ul>
-    <script>
-        var images = $("#rotate img"),
-            deg = 360/images.length;
 
-        images.each(function(i,item){
-            $(this).css({"transform":"rotateY("+i*deg+"deg) translateZ(300px)"});
-        });
-    </script>
+<ul id="fang">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <!--上-->
+    <li></li>
+    <!--下-->
+    <li></li>
+</ul>
+<script>
+    var $fangLi = $("#fang li"),
+        height = $fangLi[0].offsetHeight,
+        $fang = $("#fang"),
+        rotateYIndex = 0,
+        onRound = 60*10,//一圈所需帧数
+        onFrameDeg = 360/onRound;//每一帧移动的角度
+
+    $fangLi.each(function(i,item){
+        if(i>3){
+            return;
+        }
+        $(this).css({"transform":"rotateY("+ i*360/4+"deg) translateZ("+height/2+"px)"});
+    });
+    $("#fang li:eq(4)").css({"transform":"rotateX(90deg) translateZ("+height/2+"px)"});
+    $("#fang li:eq(5)").css({"transform":"rotateX(-90deg) translateZ("+height/2+"px)"});
+
+
+    setInterval(function(){
+        rotateYIndex++;
+        if(rotateYIndex>onRound){
+            rotateYIndex = 0;
+        }
+        $fang.css({"transform":"perspective(1000px) rotateX(-30deg) rotateY("+rotateYIndex*onFrameDeg+"deg)"});
+    },1000/60);
+
+
+
+
+</script>
+
 </body>
 </html>
