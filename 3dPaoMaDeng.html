@@ -9,6 +9,19 @@
             height: 100%;
             margin: 0;
         }
+<<<<<<< HEAD
+=======
+
+        ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body{
+            background: #000;
+        }
+>>>>>>> e4a62fadd9eaf9321777d3f583f15c1f0ff0f5d5
         #rotate {
             position: absolute;
             top: 0;
@@ -29,16 +42,35 @@
             top: 0;
             width: 300px;
             height: 300px;
+            -webkit-box-reflect: below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%);
             /*不会时时改变*/
             /*backface-visibility: hidden;*/
         }
+<<<<<<< HEAD
 
         #rotate li {
+=======
+        #rotate p{
+            position: absolute;
+            top:100%;
+            left:50%;
+            width:1200px;
+            height:1200px;
+            background: -webkit-radial-gradient(center center,600px 600px,rgba(255,255,255,.5),rgba(0,0,0,0));
+            margin-top:-600px;
+            margin-left: -600px;
+            border-radius: 600px;
+            transform:rotateX(90deg);
+>>>>>>> e4a62fadd9eaf9321777d3f583f15c1f0ff0f5d5
         }
     </style>
 </head>
 <body>
+<<<<<<< HEAD
 <div id="rotate">
+=======
+<ul id="rotate">
+>>>>>>> e4a62fadd9eaf9321777d3f583f15c1f0ff0f5d5
     <img src="images/1.jpg"/>
     <img src="images/2.jpg"/>
     <img src="images/3.jpg"/>
@@ -47,6 +79,7 @@
     <img src="images/6.jpg"/>
     <img src="images/7.jpg"/>
     <img src="images/8.jpg"/>
+<<<<<<< HEAD
 </div>
 <script>
     var images = $("#rotate img"),
@@ -54,6 +87,21 @@
 
     images.each(function (i, item) {
         $(this).css({"transform": "rotateY(" + i * deg + "deg) translateZ(300px)"});
+=======
+    <P></P>
+</ul>
+<script>
+    var images = $("#rotate img"),
+        imgLength = 360 / images.length;
+        imgWidth = images[0].width,
+//            translateZ = imgWidth/2 * Math.tan((360 / imgLength/2 / 180) * Math.PI);
+    translateZ = 362;
+
+    console.log("translateZ", translateZ);
+
+    images.each(function (i, item) {
+        $(this).css({"transform": "rotateY(" + i * imgLength + "deg) translateZ(" + translateZ + "px)"});
+>>>>>>> e4a62fadd9eaf9321777d3f583f15c1f0ff0f5d5
     });
 </script>
 </body>

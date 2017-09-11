@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <canvas id="myCanvas" width="800" height="800">什么破jb浏览器！换谷歌！</canvas>
+    <script>
+        (function(){
+            var myCan = document.getElementById("myCanvas");
+            var ctx = null;
+            if(myCan.getContext){
+                ctx = myCan.getContext("2d");
+            }
+
+//            ctx.drawImage(image,sx,sy,sWidth,sHeight,dx,dy,dWidth,dHeight);
+            var img = new Image(),
+                imgW = 0,
+                imgH = 0;
+            img.onload = function(){
+                imgW = img.width;
+                imgH = img.height;
+//                console.log("ssssss",imgW,imgH)
+                ctx.drawImage(img,100,100)
+
+                buildImg();
+            }
+            img.src = "images/1.jpg";
+
+            //处理图片详细内容
+            function buildImg(){
+                var imageData = ctx.getImageData(100,100,imgW,imgH);
+                console.log(imageData,img)
+            }
+//
+//            //控制台输出简化，shit版
+//            function cl(){
+//                var msgs = "";
+//                for(var i = 0;i<arguments.length;i++){
+//                    msgs += arguments[i];
+//                }
+//                console.log(msgs);
+//            }
+
+        })();
+
+
+    </script>
+
+</body>
+</html>

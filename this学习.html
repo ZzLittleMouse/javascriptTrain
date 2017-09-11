@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var x = 0;
+    (function(){
+        //this是全局变量
+        function test(){
+//            console.log(this);
+            console.log(this.x);
+        }
+        test();
+    })();
+
+    (function(){
+        //this是调用他的对象
+        function test(){
+//            console.log(this);
+            console.log(this.x);
+        }
+
+        var o = {};
+        o.x = 1;
+        o.m = test;
+        o.m();
+    })();
+
+    (function(){
+        //this 又变成全局对象
+        function test(){
+//            console.log(this);
+            console.log(this.x);
+        }
+
+        var o = {};
+        o.x = 1;
+        o.m = test;
+        o.m.apply();//apply()无参数，this为全局。否则为指定对象
+    })();
+
+    (function(){
+        //this 变成new的对象
+        function test(){
+            this.x = 233;
+//            console.log(this);
+            console.log(this.x);
+        }
+        var o = new test();
+        console.log(this.x);
+    })();
+
+    (function(){
+        //this 指向又变成o
+        function test(){
+//            console.log(this);
+            console.log(this.x);
+        }
+
+        var o = {};
+        o.x = 1;
+        o.m = test;
+        o.m.apply(o);//apply()无参数，this为全局。否则为指定对象
+    })();
+</script>
+</body>
+</html>

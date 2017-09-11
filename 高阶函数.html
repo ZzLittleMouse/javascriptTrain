@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //    var Moqi = function(p1){
+    //        console.log("1",this)
+    //        this.add =  function (p2){
+    //            console.log("2",this)
+    //            this.add1 = function(p3){
+    //                console.log("3",this)
+    //                return p1 + ',' + p2 + ' ' +p3;
+    //            };
+    //            return this.add1;
+    //        };
+    //        return this.add;
+    //    };
+    //    console.log(Moqi("a")("b")("c"));
+
+    var Moqi = function (p1) {
+        var self = this;
+
+        function fd(p2) {
+            this.add1 = function (p3) {
+                return p1 + ',' + p2 + ' ' + p3;
+            };
+        }
+
+        self.add = function (p2) {
+            fd.call(this, p2);
+            return this.add1;
+        };
+        return self.add;
+    };
+    console.log(Moqi("a")("b")("c"));
+    //    console.log("ffffffffffdddddddd",this.fd)
+
+    //call 继承
+    function Animal() {
+        this.name = "animal";
+        this.showName = function () {
+            console.log(this.name)
+        }
+    }
+
+    function Cat() {
+        this.name = "cat";
+    }
+
+    var animal = new Animal();
+    var cat = new Cat();
+    //将animal的showName交给Cat执行。原本cat没有showName,现在有了。
+    animal.showName.call(Cat, "")
+
+
+    //*******判断数据类型**********
+    //    function isString(obj) {
+    //        return Object.prototype.toString(obj) === "[object String]"
+    //    }
+    //    function isString(obj) {
+    //        return Object.prototype.toString(obj) === "[object Number]"
+    //    }
+
+    //抽离共用部分
+    //该函数有两个变量，但有一个是固定几种，一个是不确定的
+    //把固定几种作为最外层可选参数
+    //不确定的作为最后函数所需参数，即可完全分离
+    function isType(type) {
+        return function(obj){
+            return Object.prototype.toString.call(obj) === "[object "+type+"]"
+        }
+    }
+    var isString = isType("String");
+    var isNumber = isType("Number");
+    var isArray = isType("Array");
+
+    console.log(isString("aaa"));
+    console.log(isNumber("aaa"));
+    console.log(isArray("aaa"));
+
+    //再抽离
+    console.log("*************")
+    var Type = {};
+    //共同部分是isType()给类型的过程，通过循环，对象属性，es6字符串模板，闭包等技术进行改造
+    for(var i=0,type;type = ["String","Array","Number"][i++];){
+        (function(type){
+            Type[`is${type}`] = function(obj){
+                return Object.prototype.toString.call(obj) === `[object ${type}]`;
+            }
+        })(type);
+    }
+
+    console.log("***************",Type)
+    console.log(Type.isString("aaa"));
+    console.log(Type.isNumber("aaa"));
+    console.log(Type.isArray("aaa"));
+
+</script>
+</body>
+</html>
