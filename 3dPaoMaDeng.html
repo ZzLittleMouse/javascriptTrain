@@ -5,75 +5,82 @@
     <title>Title</title>
     <script src="js/jquery-3.2.1.min.js"></script>
     <style type="text/css">
-        html,body{
-            height:100%;
-            margin:0;
+        html, body {
+            height: 100%;
+            margin: 0;
         }
-        ul,li{
-            margin:0;
-            padding:0;
+
+        ul, li {
+            margin: 0;
+            padding: 0;
             list-style: none;
         }
-        #rotate{
+
+        body{
+            background: #000;
+        }
+        #rotate {
             position: absolute;
-            top:0;
-            left:0;
-            right:0;
-            bottom:0;
-            margin:auto;
-            width:300px;
-            height:300px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 300px;
+            height: 300px;
             transform-style: preserve-3d;
             /*产生冲突*/
             /*transform:translate(-50%,-50%);*/
-            transform: perspective(800px) rotateX(-30deg) rotateY(30deg  );
+            transform: perspective(800px) rotateX(-30deg) rotateY(30deg);
         }
-        #rotate img{
-            width:300px;
+
+        #rotate img {
+            position: absolute;
+            top: 0;
+            width: 300px;
             height: 300px;
+            -webkit-box-reflect: below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%);
             /*不会时时改变*/
             /*backface-visibility: hidden;*/
         }
-        #rotate li{
+        #rotate p{
             position: absolute;
-            top: 0;
+            top:100%;
+            left:50%;
+            width:1200px;
+            height:1200px;
+            background: -webkit-radial-gradient(center center,600px 600px,rgba(255,255,255,.5),rgba(0,0,0,0));
+            margin-top:-600px;
+            margin-left: -600px;
+            border-radius: 600px;
+            transform:rotateX(90deg);
         }
     </style>
 </head>
 <body>
-        <ul id="rotate">
-            <li>
-                <img src="images/1.jpg"/>
-            </li>
-            <li>
-                <img src="images/2.jpg"/>
-            </li>
-            <li>
-                <img src="images/3.jpg"/>
-            </li>
-            <li>
-                <img src="images/4.jpg"/>
-            </li>
-            <li>
-                <img src="images/5.jpg"/>
-            </li>
-            <li>
-                <img src="images/6.jpg"/>
-            </li>
-            <li>
-                <img src="images/7.jpg"/>
-            </li>
-            <li>
-                <img src="images/8.jpg"/>
-            </li>
-        </ul>
-    <script>
-        var images = $("#rotate img"),
-            deg = 360/images.length;
+<ul id="rotate">
+    <img src="images/1.jpg"/>
+    <img src="images/2.jpg"/>
+    <img src="images/3.jpg"/>
+    <img src="images/4.jpg"/>
+    <img src="images/5.jpg"/>
+    <img src="images/6.jpg"/>
+    <img src="images/7.jpg"/>
+    <img src="images/8.jpg"/>
+    <P></P>
+</ul>
+<script>
+    var images = $("#rotate img"),
+        imgLength = 360 / images.length;
+        imgWidth = images[0].width,
+//            translateZ = imgWidth/2 * Math.tan((360 / imgLength/2 / 180) * Math.PI);
+    translateZ = 362;
 
-        images.each(function(i,item){
-            $(this).css({"transform":"rotateY("+i*deg+"deg) translateZ(300px)"});
-        });
-    </script>
+    console.log("translateZ", translateZ);
+
+    images.each(function (i, item) {
+        $(this).css({"transform": "rotateY(" + i * imgLength + "deg) translateZ(" + translateZ + "px)"});
+    });
+</script>
 </body>
 </html>
